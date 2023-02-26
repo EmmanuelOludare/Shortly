@@ -187,7 +187,7 @@ body{
   gap: 25px;
   align-items: center;
   justify-content: center;
-  background-color: var(--neutral-color-grayish-violet);
+  background-color: var(--neutral-color-gray);
 
    .shorten__interface{
       background-image: url('./assets/images/bg-shorten-mobile.svg');
@@ -247,10 +247,16 @@ body{
     margin-top: -105px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 30px;
     align-items: center;
     justify-content: center;
     width: 100%;
+
+    .empty__prompt{
+      font-size:1.6rem;
+      font-weight: 700;
+      color: var(--neutral-color-very-dark-violet);
+    }
 
     .recently__shortened__links{
       background-color: #FFFFFF;
@@ -284,18 +290,230 @@ body{
           font-size:1.25rem;
         }
 
-        .copy__btn{
-          width: 100%;
-          height: 45px;
-          border-radius: 7px;
-          background-color:var(--primary-color-cyan);
-          cursor: pointer;
-          color: #FFFFFF;
-          font-weight: 700;
-          font-size: 1.1rem;
-          border: none;
+        .buttons__container{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+
+          .copy__btn{
+            width: 85%;
+            height: 45px;
+            border-radius: 7px;
+            background-color:var(--primary-color-cyan);
+            cursor: pointer;
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: none;
+          }
+
+          .delete__btn{
+            width: 15%;
+            height: 45px;
+            border-radius: 7px;
+            background-color:var(--secondary-color-red);
+            cursor: pointer;
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: none;
+            align-self: center;
+          }
         }
       }
    }
    }
 }
+
+.Services{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--neutral-color-gray);
+
+  .services__container{
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    align-items: center;
+    justify-content: center;
+
+    .services__intro{
+      padding-top: 85px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      .services__intro__header{
+        font-weight: 700;
+        font-size:1.9rem;
+        color: var(--neutral-color-very-dark-violet);
+      }
+
+      .services__intro__description{
+        color: var( --neutral-color-grayish-violet);
+        font-size:1.1rem;
+        line-height: 30px;
+      }
+    }
+
+    .services__description{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 2.5rem;
+
+      .service__description{
+        background-color: #FFFFFF;
+        padding: 1.6rem;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 15px;
+
+        .img__container{
+          background-color: var(--primary-color-dark-violet);
+          padding: 1.5rem;
+          border-radius:50%;
+          display: flex;
+          position: relative;
+          top: -70px;
+          
+          img{
+            align-self: center;
+          }
+        }
+
+        .service__description__header{
+          font-weight: 700;
+          font-size:1.7rem;
+          margin-top: -70px;
+          color: var(--neutral-color-very-dark-violet);
+        }
+
+        .service__description__info{
+          color: var(--neutral-color-gray);
+          font-size:1.1rem;
+          line-height: 30px;
+        }
+      }
+
+      .connector{
+        width: .5rem;
+        height: 6rem;
+        background-color:var(--primary-color-cyan);
+      }
+    }
+  }
+
+  .boosting__section{
+      background-image: url('./assets/images/bg-boost-mobile.svg');
+      background-color: var(--primary-color-dark-violet);
+      background-repeat: no-repeat;
+      background-size: 89%;
+      background-position: right -10px top -10px;
+      padding: 4.5rem 1.2rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
+      color: #FFFFFF;
+      text-align: center;
+
+      .boosting__header{
+        font-weight: 700;
+        font-size:1.9rem;
+      }
+
+      .get__started{
+        text-decoration: none;
+        width: 220px;
+        padding:.8rem 0;
+        border-radius: 25px;
+        background-color:var(--primary-color-cyan);
+        cursor: pointer;
+        color: #FFFFFF;
+        font-weight: 700;
+        font-size: 1.125rem;
+      }
+  }
+}
+
+
+.Footer{
+  background-color:var(--neutral-color-very-dark-violet);
+  color:#FFFFFF;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  align-items: center;
+  justify-content: center;
+  padding:3rem 0;
+
+  .sitemap__socials__container{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    align-items: center;
+    justify-content: center;
+
+    .sitemap{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+  
+      .sitemap__heading{
+        font-weight:700;
+      }
+  
+      .sitemap__subheadings{
+        text-align:center;
+        list-style:none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+  
+        .sitemap__subheading{
+  
+          a{
+            text-decoration:none;
+            color:#FFFFFF;
+          }
+        }
+      }
+    }
+  
+    .socials__container{
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+/* --primary-color-cyan:hsl(180, 66%, 49%);
+  --primary-color-dark-violet:hsl(257, 27%, 26%);
+  /*Secondary
+  --secondary-color-red:hsl(0, 87%, 67%);
+  /*Neutral
+  --neutral-color-gray:hsl(0, 0%, 75%);
+  --neutral-color-grayish-violet:hsl(257, 7%, 63%);
+  --neutral-color-very-dark-blue:hsl(255, 11%, 22%);
+  --neutral-color-very-dark-violet:hsl(260, 8%, 14%);*/
