@@ -1,14 +1,50 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { FaBars } from "react-icons/fa";
 import logo from '../assets/images/logo.svg';
 import illustrationWorking from '../assets/images/illustration-working.svg';
 
 const Landing = () => {
     const [sideBarSlide,setSideBarSlide] = useState(false);
+    const [lastScroll, setLastScroll] = useState(0);
+    const [isScrollUp, setIsScrollUp] = useState(true);
     const toggleSidebarNav = () => {
         setSideBarSlide(prevSlide => !prevSlide)
         document.querySelector("nav").classList.toggle('slide');
     };
+
+    useEffect(() => {
+        function handleScroll() {
+          const currentScroll = window.pageYOffset;
+          const body = document.querySelector('.logo__menubtn__container');
+    
+          if (currentScroll <= 0) {
+            body.classList.remove("scroll-up");
+            setIsScrollUp(true);
+            return;
+          }
+    
+          if (currentScroll > lastScroll && !body.classList.contains("scroll-down")) {
+            body.classList.remove("scroll-up");
+            body.classList.add("scroll-down");
+            setIsScrollUp(false);
+          } else if (
+            currentScroll < lastScroll &&
+            body.classList.contains("scroll-down")
+          ) {
+            body.classList.remove("scroll-down");
+            body.classList.add("scroll-up");
+            setIsScrollUp(true);
+          }
+          setLastScroll(currentScroll);
+        }
+    
+        window.addEventListener("scroll", handleScroll);
+    
+        // cleanup event listener on unmount
+        return () => {
+          window.removeEventListener("scroll", handleScroll);
+        };
+      }, [lastScroll]);
 
   return (
     <div className='Landing'>

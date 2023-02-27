@@ -131,8 +131,9 @@ const Link = () => {
         shortenedLink: data.result.short_link,
       };
       const updatedLinks = [...links, newLink];
-      setLinks(updatedLinks);
-      localStorage.setItem('links', JSON.stringify(updatedLinks));
+      const reversedArray = [...updatedLinks].reverse();
+      setLinks(reversedArray);
+      localStorage.setItem('links', JSON.stringify(reversedArray));
       setOriginalLink("");
   };
 
@@ -149,10 +150,15 @@ const Link = () => {
 
   const pattern = /^https?:\/\/(?:[a-z0-9-]+\.)+[a-z]{2,}(?:\/[^\s]*)?$/i;
 
-  const copyToClipboard = (text) => {
+  const copyToClipboard = (text, index, event) => {
     navigator.clipboard.writeText(text);
-    setIsCopied(true);
-    setTimeout(() => setIsCopied(false), 2000);
+    const elementId = event.target.id;
+    document.getElementById(elementId).innerHTML="Copied!";
+    document.getElementById(elementId).style.backgroundColor="hsl(260, 8%, 14%)";
+    setTimeout(() => {
+      document.getElementById(elementId).innerHTML="Copy";
+      document.getElementById(elementId).style.backgroundColor="hsl(180, 66%, 49%)";
+    }, 2000);
   };
 
   const handleDelete = (index) => {
@@ -193,7 +199,7 @@ const Link = () => {
               <div className="copy">
                 <p className="shortened__link__text">{link.shortenedLink}</p>
                 <div className="buttons__container">
-                  <button className="copy__btn" onClick={() => copyToClipboard(link.shortenedLink)} style={{backgroundColor : isCopied ? "hsl(260, 8%, 14%)" : "hsl(180, 66%, 49%)"}}>{isCopied ? "Copied!" : "Copy"}</button>
+                  <button className="copy__btn" id={index} onClick={(event) => copyToClipboard(link.shortenedLink,index,event)}>Copy</button>
                   <button className="delete__btn" onClick={() => handleDelete(index)}><FaTrash /></button>
                 </div>
               </div>
