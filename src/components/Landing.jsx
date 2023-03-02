@@ -15,7 +15,7 @@ const Landing = () => {
     useEffect(() => {
         function handleScroll() {
           const currentScroll = window.pageYOffset;
-          const body = document.querySelector('.logo__menubtn__container');
+          const body = document.querySelector('header');
     
           if (currentScroll <= 0) {
             body.classList.remove("scroll-up");

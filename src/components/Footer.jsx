@@ -39,10 +39,10 @@ const Footer = () => {
             </ul>
           </div>
           <div className="socials__container">
-            <img src={facebookImg} alt="facebook" className="social" />
-            <img src={twitterImg} alt="twitter" className="social" />
-            <img src={pinterestImg} alt="pinterest" className="social" />
-            <img src={instagramImg} alt="instagram" className="social" />
+            <img src={facebookImg} alt="facebook" className="social facebook" />
+            <img src={twitterImg} alt="twitter" className="social twitter" />
+            <img src={pinterestImg} alt="pinterest" className="social pinterest" />
+            <img src={instagramImg} alt="instagram" className="social instagram" />
           </div>
       </div>
     </div>

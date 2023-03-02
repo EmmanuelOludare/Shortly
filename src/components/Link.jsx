@@ -123,6 +123,9 @@ const Link = () => {
 
   const handleShortenLink = async (e) => {
     e.preventDefault();
+    if(originalLink === '' || !pattern.test(originalLink)) {
+      console.log("annoying")
+    }else{
       const response = await fetch(`https://api.shrtco.de/v2/shorten?url=${originalLink}`);
       const data = await response.json();
       setShortenedLink(data.result.short_link);
@@ -135,6 +138,7 @@ const Link = () => {
       setLinks(reversedArray);
       localStorage.setItem('links', JSON.stringify(reversedArray));
       setOriginalLink("");
+    }
   };
 
   const [items, setItems] = useState([]);
@@ -180,6 +184,7 @@ const Link = () => {
           name="originalLink"
           onChange={handleChange}
           value={originalLink}
+          style={{border: originalLink === '' || !pattern.test(originalLink) ? "hsl(0, 87%, 67%) 2px solid" : ""}}
           />
           {
             (originalLink === '') ?
