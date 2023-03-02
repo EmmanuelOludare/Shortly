@@ -149,6 +149,7 @@ header.scroll-up {
     gap: 2.5rem;
     width: 100%;
     overflow-x: hidden;
+    padding-top: 4.5rem;
 
     .info__container{
       text-align: center;
@@ -524,22 +525,9 @@ header.scroll-up {
       align-items: center;
       justify-content: center;
       color:#FFFFFF;
-
-      .social{
-
-      }
     }
   }
 }
-/* --primary-color-cyan:hsl(180, 66%, 49%);
-  --primary-color-dark-violet:hsl(257, 27%, 26%);
-  /*Secondary
-  --secondary-color-red:hsl(0, 87%, 67%);
-  /*Neutral
-  --neutral-color-gray:hsl(0, 0%, 75%);
-  --neutral-color-grayish-violet:hsl(257, 7%, 63%);
-  --neutral-color-very-dark-blue:hsl(255, 11%, 22%);
-  --neutral-color-very-dark-violet:hsl(260, 8%, 14%);*/
 
 
   /*FOR LARGE SCREENS*/
@@ -590,6 +578,11 @@ header.scroll-up {
               a{
                 text-decoration: none;
                 color: var(--neutral-color-gray);
+                transition: all .3s ease-in-out;
+              }
+
+              a:hover{
+                color:var(--neutral-color-very-dark-blue);
               }
             }
           }
@@ -608,17 +601,33 @@ header.scroll-up {
                 color: var(--neutral-color-gray);
               }
             }
+
+            .login{
+              a{
+                transition: all .3s ease-in-out;
+              }
+
+              a:hover{
+                color:var(--neutral-color-very-dark-blue);
+              }
+            }
       
             .signup{
               width: auto;
               padding:.5rem 2rem;
               border-radius: 20px;
               background-color:var(--primary-color-cyan);
+              transition: all .3s ease-in-out;
               cursor: pointer;
 
               a{
                 color: #FFFFFF;
               }
+            }
+
+            .signup:hover{
+              background-color: hsl(180, 72%, 80%);
+              box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.4);
             }
           }
         }
@@ -664,11 +673,17 @@ header.scroll-up {
           padding:.8rem 0;
           border-radius: 25px;
           background-color:var(--primary-color-cyan);
-          cursor: pointer;
           align-self: flex-start;
           font-size: 1.125rem;
           text-align: center;
+          transition: all .3s ease-in-out;
+          cursor: pointer;
         }
+
+        .get__started:hover{
+          background-color: hsl(180, 72%, 80%);
+          box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.4);
+          }
       }
     
     }
@@ -707,8 +722,14 @@ header.scroll-up {
             width: 15%;
             height: 50px;
             border-radius: 8px;
-            cursor: pointer;
             font-size: 1.13rem;
+            transition: all .3s ease-in-out;
+            cursor: pointer;
+          }
+
+          .shorten__btn:hover{
+            background-color: hsl(180, 72%, 80%);
+            box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.4);
           }
        }
     
@@ -748,12 +769,26 @@ header.scroll-up {
                 width: 150px;
                 height: 50px;
                 border-radius: 8px;
+                transition: all .3s ease-in-out;
+                cursor: pointer;
+              }
+
+              .copy__btn:hover{
+                background-color: hsl(180, 72%, 80%);
+                box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.4);
               }
     
               .delete__btn{
                 width: 70px;
                 height: 50px;
                 border-radius: 8px;
+                transition: all .3s ease-in-out;
+                cursor: pointer;
+              }
+
+              .delete__btn:hover{
+                background-color: hsl(0, 89%, 72%);
+                box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.4);
               }
             }
           }
@@ -817,10 +852,6 @@ header.scroll-up {
             }
           }
 
-          .sd__one{
-
-          }
-
           .sd__two{
             position: relative;
             top:45px;
@@ -842,9 +873,11 @@ header.scroll-up {
           background-image: url('./assets/images/bg-boost-desktop.svg');
           background-size: 110%;
           padding: 4rem 1.2rem;
+          transition: all .3s ease-in-out;
 
           .get__started:hover{
-            opacity: .7;
+            background-color: hsl(180, 72%, 80%);
+            box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.4);
           }
       }
     }
