@@ -136,7 +136,7 @@ const Link = () => {
       const updatedLinks = [...links, newLink];
       const reversedArray = [...updatedLinks].reverse();
       setLinks(reversedArray);
-      localStorage.setItem('links', JSON.stringify(reversedArray));
+      localStorage.setItem('links', JSON.stringify(reversedArray)); 
       setOriginalLink("");
     }
   };
