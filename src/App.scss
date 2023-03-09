@@ -271,6 +271,10 @@ header.scroll-up {
     justify-content: center;
     width: 100%;
 
+    .recently__shortened__links:first-child {
+      border: red solid 2px;
+     }
+
     .empty__prompt{
       font-size:1.6rem;
       font-weight: 700;
@@ -278,6 +282,7 @@ header.scroll-up {
     }
 
     .recently__shortened__links{
+      position: relative;
       background-color: #FFFFFF;
       padding: 1.4rem;
       width: 100%;
@@ -285,6 +290,15 @@ header.scroll-up {
       display: flex;
       flex-direction: column;
       gap: 15px;
+
+      .recent__indicator{
+        position: absolute;
+        top: 3px;
+        left: 1.4rem;
+        color:var(--secondary-color-red);
+        font-weight: 500;
+        font-size:1rem;
+      }
 
       .original__link__text{
         color: var(--neutral-color-grayish-violet);
@@ -747,8 +761,12 @@ header.scroll-up {
           padding: 1.6rem;
           flex-direction: row;
           align-items: center;
-          gap: 3rem;
-    
+          gap: 2rem;
+
+          .recent__indicator{
+            top: .6rem;
+          }
+
           .line{
             display: none;
           }
