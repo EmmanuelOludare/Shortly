@@ -207,6 +207,25 @@ header.scroll-up {
   justify-content: center;
   background-color:#f0f1f6;
 
+  .error__ui{
+    border-radius: 10px;
+    padding: 1rem;
+    z-index: 998;
+    background-color:#fff;
+    color: var(--secondary-color-red);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 5rem;
+    right: 1.2rem;
+    font-size: 1.3rem;
+    transition: all .5s ease-in-out;
+    transform: translateX(0%);
+  }
+
+  .error__ui.slide{
+    transform: translateX(250%);
+  }
+
    .shorten__interface{
       background-image: url('./assets/images/bg-shorten-mobile.svg');
       background-color: var(--primary-color-dark-violet);
@@ -222,7 +241,6 @@ header.scroll-up {
       position: relative;
       top: -105px;
       
-
       .input__error__container{
         display: flex;
         flex-direction: column;
@@ -271,8 +289,18 @@ header.scroll-up {
     justify-content: center;
     width: 100%;
 
-    .recently__shortened__links:first-child {
-      border: red solid 2px;
+     .recently__shortened__links:nth-child(2){
+      margin-top:40px;
+     }
+
+     .recently__shortened__links:nth-child(2)::before{
+      content:"Previously shortened links";
+      position: absolute;
+      margin-top: -75px;
+      margin-left: -1.4rem;
+      font-size:1.6rem;
+      font-weight: 700;
+      color: var(--neutral-color-very-dark-violet);
      }
 
     .empty__prompt{
@@ -290,6 +318,7 @@ header.scroll-up {
       display: flex;
       flex-direction: column;
       gap: 15px;
+      box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 
       .recent__indicator{
         position: absolute;
@@ -750,6 +779,10 @@ header.scroll-up {
        .links__container{
         margin-top: -95px;
         gap: 30px;
+    
+         .recently__shortened__links:nth-child(2)::before{
+          margin-top: -11rem;
+         }
     
         .empty__prompt{
           font-size:1.6rem;

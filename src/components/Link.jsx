@@ -2,42 +2,53 @@ import { useState,useEffect } from 'react';
 import { FaTrash } from "react-icons/fa";
 
 const Link = () => {
+  const pattern = /^https?:\/\/(?:[a-z0-9-]+\.)+[a-z]{2,}(?:\/[^\s]*)?$/i;
   const [originalLink, setOriginalLink] = useState("");
-  const [shortenedLink, setShortenedLink] = useState("");
   const [links, setLinks] = useState([]);
-  const [isCopied, setIsCopied] = useState(false);
+  const [errorUI, setErrorUI] = useState(``);
+  const [errorSlide,setErrorSlide] = useState(true);
 
   const handleChange = e => {
     const {value } = e.target;
     setOriginalLink(value);
   }
 
+  const handleTimeout = () => {
+    setErrorSlide(false);
+      setTimeout(() => {
+        setErrorSlide(true);
+      }, 3000);
+  }
+
   const handleShortenLink = async (e) => {
     e.preventDefault();
     if(originalLink === '' || !pattern.test(originalLink)) {
-      console.log("annoying")
-    }else{
+      setErrorUI(`Invalid URL!`);
+      handleTimeout();
+    } else {
+    try {
       const response = await fetch(`https://api.shrtco.de/v2/shorten?url=${originalLink}`);
       const data = await response.json();
-      setShortenedLink(data.result.short_link);
       const newLink = {
-        longLink: originalLink,
-        shortenedLink: shortenedLink,
+      longLink: originalLink,
+      shortenedLink: data.result.short_link,
       };
       const updatedLinks = [...links, newLink];
       const reversedArray = [...updatedLinks].reverse();
       setLinks(reversedArray);
-      localStorage.setItem('links', JSON.stringify(reversedArray)); 
+      localStorage.setItem('links', JSON.stringify(reversedArray));
       setOriginalLink("");
+    } catch (error) {
+      setErrorUI(`Error occurred while shortening the link!`);
+      handleTimeout();
     }
-  };
+    }
+    };
 
   useEffect(() => {
     const storedLinks = JSON.parse(localStorage.getItem('links') || '[]');
     setLinks(storedLinks);
   }, []);
-
-  const pattern = /^https?:\/\/(?:[a-z0-9-]+\.)+[a-z]{2,}(?:\/[^\s]*)?$/i;
 
   const copyToClipboard = (text, index, event) => {
     navigator.clipboard.writeText(text);
@@ -59,8 +70,13 @@ const Link = () => {
 
   return (
     <div className='Link'>
+      <div className={`error__ui ${errorSlide ? 'slide' : ''}`} >
+        <p>{errorUI}</p>
+          <div className="cancel__btn">
+        </div>
+      </div>
       <div className="shorten__interface">
-        <div className="input__error__container"> {/*08067796866*/}
+        <div className="input__error__container"> 
           <input 
           type="text" 
           className="link__input" 
